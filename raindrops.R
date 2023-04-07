@@ -1,13 +1,9 @@
 raindrops <- function(number) {
-  sounds <- c()
-  
-
-  sounds <- c("Pling", "Plang", "Plong")
+  sounds <- c("Pling" = 3, "Plang" = 5, "Plong" = 7)
   factors <- c(3, 5, 7)
-  rain <- paste(sounds[number %% factors == 0], collapse = "")
-  if (nchar(rain) == 0)
-    return (as.character(number))
-  rain
+  rain <- paste(names(sounds[number %% sounds == 0]), collapse = "")
+  ifelse  (nchar(rain)> 0, yes = rain, no = as.character(number))
+ 
 }
 
 raindrops(63)
